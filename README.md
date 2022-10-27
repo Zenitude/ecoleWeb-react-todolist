@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Ecolde du Web - React - Todo-list
+
+First project course "React from A to Z"
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
