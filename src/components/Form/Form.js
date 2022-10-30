@@ -20,7 +20,7 @@ export default function Form({dataList, func}) {
         else
         {
             setErrorState(false);
-            const newArr = [...dataList, {txt: inputState, id: uuidv4()}]
+            const newArr = [...dataList, {txt: inputState, id: uuidv4()}];
             func(newArr);
             setInputState('');
         }
