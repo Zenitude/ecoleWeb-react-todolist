@@ -4,7 +4,7 @@ import './Form.css';
 
 export default function Form({dataList, func}) {
 
-    const [inputState, setInputState] = useState();
+    const [inputState, setInputState] = useState('');
     const [errorState, setErrorState] = useState(false);
     
     const dataInput = (e) => {
