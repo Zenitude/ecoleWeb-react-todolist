@@ -1,0 +1,38 @@
+.itemList
+{
+    width: 100%;
+    min-width: 270px;
+    border: 1px solid rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.itemList label
+{
+    width: 75%;
+}
+
+.itemList input
+{
+    display: none;
+}
+
+.itemList button
+{
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

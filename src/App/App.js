@@ -5,17 +5,16 @@ import List from '../components/List/List';
 
 function App() {
 
-  const [dataState, setDataState] = useState();
+  const [dataArr, setDataArr] = useState([]);
 
-  const sendList = (data) => {
-    setDataState(data);
+  const updateList = (data) => {
+    setDataArr(data);
   }
-  console.log(dataState);
 
   return (
     <div className="App">
-      <Form func={sendList} />
-      <List />
+      <Form dataList={dataArr} func={updateList}/>
+      <List dataList={dataArr} func={updateList} />
     </div>
   );
 }

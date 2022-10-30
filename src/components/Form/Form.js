@@ -1,38 +1,43 @@
 import {useState} from 'react';
+import {v4 as uuidv4} from 'uuid';
 import './Form.css';
 
-export default function Form({func}) {
+export default function Form({dataList, func}) {
 
     const [inputState, setInputState] = useState();
-    const [errorState, setErrorState] = useState(null);
-
+    const [errorState, setErrorState] = useState(false);
+    
     const dataInput = (e) => {
-        setInputState(e);
+        setInputState(e)
     }
 
     const sendAction = (e) => {
         e.preventDefault();
-        if(inputState !== null || inputState !== '' || inputState !== undefined)
+        if(inputState === null || inputState === '' || inputState === undefined)
         {
-            func(inputState)
+            setErrorState(true);
         }
         else
         {
-            setErrorState('La valeur ne peut être null, indéfinie ou vide')
+            setErrorState(false);
+            const newArr = [...dataList, {txt: inputState, id: uuidv4()}]
+            func(newArr);
+            setInputState('');
         }
+    
     }
 
     return(
         <div className="Form">
             <h1>Todo-List</h1>
-            <div className='containerForm'>
+            <form onSubmit={e => sendAction(e)} className='containerForm'>
                 <div className="containerInput">
                     <label htmlFor="todoList-input">Chose à faire</label>
-                    <input onInput={(e) => dataInput(e.target.value)} type="text" id="todoList-input" name="todoList-input"/>
-                    {errorState != null && <p>{errorState}</p>}
+                    <input onInput={(e) => dataInput(e.target.value)} type="text" id="todoList-input" name="todoList-input" value={inputState}/>
+                    {errorState && <p className="msgError">La valeur ne peut être null, indéfinie ou vide</p>}
                 </div>
-                <button onClick={sendAction} className="btnSend">Envoyer</button>
-            </div>
+                <button className="btnSend">Envoyer</button>
+            </form>
         </div>
     )
 }
